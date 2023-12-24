@@ -11,6 +11,7 @@ import pandas as pd
 
 from db_control.connect import engine
 from db_control.mymodels import Customers
+# from db_control import create_tables # 初回だけコメントアウトを消す
  
 
 def myinsert(mymodel, values):

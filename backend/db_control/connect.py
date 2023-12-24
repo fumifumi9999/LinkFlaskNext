@@ -11,7 +11,7 @@ import sqlalchemy
 # print(path)
 # engine = create_engine("sqlite:///CRM.db", echo=True)
 
-import config
+from db_control import config
 
 user = config.DB_USER
 port = config.PORT

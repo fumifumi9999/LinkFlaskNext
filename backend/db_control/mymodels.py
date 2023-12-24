@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from datetime import datetime
  
@@ -9,23 +9,23 @@ class Base(DeclarativeBase):
 
 class Customers(Base):
     __tablename__ = 'customers'
-    customer_id:Mapped[str] = mapped_column(primary_key=True)
-    customer_name:Mapped[str] = mapped_column()
+    customer_id:Mapped[str] = mapped_column(String(255), primary_key=True)
+    customer_name:Mapped[str] = mapped_column(String(255))
     age:Mapped[int] = mapped_column()
-    gender:Mapped[str] = mapped_column()
+    gender:Mapped[str] = mapped_column(String(255))
 
 
 class Items(Base):
     __tablename__ = 'items'
-    item_id:Mapped[str] = mapped_column(primary_key=True)
-    item_name:Mapped[str] = mapped_column()
+    item_id:Mapped[str] = mapped_column(String(255),primary_key=True)
+    item_name:Mapped[str] = mapped_column(String(255))
     price:Mapped[int] = mapped_column()
  
 
 class Purchases(Base):
     __tablename__ = 'purchases'
     purchase_id:Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    purchase_name:Mapped[str] = mapped_column(ForeignKey("customers.customer_id"))
+    purchase_name:Mapped[str] = mapped_column(String(255), ForeignKey("customers.customer_id"))
     date:Mapped[datetime] = mapped_column()
  
 
